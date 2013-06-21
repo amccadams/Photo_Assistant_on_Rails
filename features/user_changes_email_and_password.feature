@@ -1,7 +1,7 @@
 Feature: User changes email and password
 
-         Scenario: Emai happy path
-                   Given I am loggen in as "bob@example.com" with password "password"
+         Scenario: Email happy path
+                   Given I am logged in as "bob@example.com" with password "password"
                    When I go to the homepage
                    And I click "Settings"
                    And I fill in "Email" with "robert@example.com"

@@ -9,6 +9,11 @@
 </head>
 <body>
    <p class="notice"><%= notice %></p>
+   <%- flash.each do |type, message| %>
+  <!--  <div class ="flash">
+   	<% type.upcase %>: <%= message %>
+   </div> -->
+   <% end %>
    <p class="alert"><%= alert %></p>
 <%= yield %>
 

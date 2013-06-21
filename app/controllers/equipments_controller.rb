@@ -11,22 +11,43 @@ class EquipmentsController < ApplicationController
 
   end
 
-  def new
+ def new
     @equipment = Equipment.new
+    # @equipment_types = Equipment_Type.find(:all)
   end
 
   def show
     @equipment = Equipment.find(params[:id])
   end
 
+  # def create
+  #   @equipment = Equipment.new(params[:equipment])
+  #   if @equipment.save
+  #     flash[:notice] = "Your equipment was added to the inventory"
+  #   else
+  #     flash[:alert] = "Your equipment wasn't added to the inventory"
+  #   end
+  #   redirect_to :root
+  # end
+
   def create
     @equipment = Equipment.new(params[:equipment])
     if @equipment.save
-      flash[:notice] = "Your equipment was added to the inventory"
+      redirect_to :action =>'new'
     else
-      flash[:alert] = "Your equipment wasn't added to the inventory"
+       @equipment = Equipment_Type.find(:all)
+      render :action => 'new'
     end
-    redirect_to :root
+  end
+
+  def update
+    @equipment = Equipment.find(params[:id])
+    if @equipment.update_attributes(params[:equipment])
+      redirect_to :action => 'show', :id => @equipment
+    else
+      @equipment_types = Equipment_Type.find(:all)
+      render :action => 'edit'
+    end
   end
 
     def edit
@@ -34,8 +55,17 @@ class EquipmentsController < ApplicationController
     @equipment_count = Equipment.count
   end
 
+  # def edit
+  #   @equipment = Equipment.find(params[:id])
+  #   # @equipment_types = Equipment_Type.find(:all)
+  # end
+
   def delete
     @equipment = Equipment.find(params[:id])
+  end
+
+  def show_equipment_type_id
+    @equipment_type = Equipment_Type.find (params[:id])
   end
 
   def destroy
@@ -43,5 +73,6 @@ class EquipmentsController < ApplicationController
     @equipment.destroy
     end
 end
+
 
 

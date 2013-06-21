@@ -1,10 +1,8 @@
 RailsPhotoAssistant::Application.routes.draw do
-  devise_for :users
+
  
-  root :to => "home#index"
-  resources :equipment
+  root to: "home#index"
+  resources :equipments, only: [:list, :index, :new, :show, :create, :edit, :destroy]
 
-  match 'create_equipment' => "Equipment#create"
-  match 'all' => "Equipment#index"
-
+  # devise_for :users
 end
