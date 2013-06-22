@@ -9,7 +9,7 @@
 	<ul>
 	<% @equipments.each do |equipment | %>
 
-	<h4><%= link_to "#{equipment.name}", equipment_url(equipment) %></h4>
+	<h4><%= link_to "#{equipment.model}", equipment_url(equipment) %></h4>
 	<% end %>
 
 

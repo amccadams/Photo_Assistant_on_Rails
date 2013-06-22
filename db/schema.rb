@@ -25,13 +25,11 @@ ActiveRecord::Schema.define(:version => 20130622124704) do
   create_table "equipments", :force => true do |t|
     t.string  "name"
     t.string  "serial"
+    t.string  "make"
+    t.string  "model"
+    t.string  "purchasedate"
+    t.text    "description"
     t.integer "type_id"
-  end
-
-  create_table "photo_shoots", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "shoots", :force => true do |t|
