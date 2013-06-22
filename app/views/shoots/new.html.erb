@@ -25,8 +25,9 @@
 
  
 
-	<%= f.submit "Add Shoot" %>
-	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+	<%= f.submit "Add Shoot" %><br />
+	<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %><br />
+  <%= link_to("Back to Shoots Page", {:controller => "shoots", :action => "index" }) %>
 	<% end %>
 
 
