@@ -61,13 +61,13 @@ class ShootsController < ApplicationController
   #   # @equipment_types = Equipment_Type.find(:all)
   # end
 
-  def delete
-    @shoot = Shoot.find(params[:id])
-  end
+  # def delete
+  #   @shoot = Shoot.find(params[:id])
+  # end
 
 
   def destroy
-    @shoot = Shoot_Type.find(params[:id])
+    @shoot = Shoot.find(params[:id])
     @shoot.destroy
     end
 end

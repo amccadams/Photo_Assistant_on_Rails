@@ -8,6 +8,6 @@
 
 
 
-	<%= f.submit "edit Gear", url: equipment_path, :method => :put %>
-	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+	<%= f.submit "Edit Equipment", url: equipment_path, :method => :put %>
+	<%= link_to("Back to Equipment", {:controller => "equipments", :action => "index" }) %>
 	<% end %>

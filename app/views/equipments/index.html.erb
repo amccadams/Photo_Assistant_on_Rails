@@ -1,7 +1,14 @@
-<h1>Show Camera Gear</h1>
-<%= link_to 'Go Back to Add More Equipment ', {:action => 'new'} %>
-<ul>
+<h1>Camera Gear</h1>
+<%= link_to 'Add Equipment ', {:action => 'new'} %><br />
+
+
+
+	<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %>
+<h2>Click on equipment to see details and make edits</h2>
+
+	<ul>
 	<% @equipments.each do |equipment | %>
+
 	<h4><%= link_to "#{equipment.name}", equipment_url(equipment) %></h4>
 	<% end %>
 

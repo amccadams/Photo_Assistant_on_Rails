@@ -10,4 +10,6 @@
 	<%= f.submit "edit Shoot", url: shoot_path, :method => :put %>
 	<%= f.submit "Delete Shoot", url: shoot_path, :method => :delete %>
 	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+
+	<%= button_to "delete", @shoot, :method => :delete %>
 	<% end %>
