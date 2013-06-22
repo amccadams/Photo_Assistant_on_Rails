@@ -1,0 +1,6 @@
+<h1>Show Photo Shoots</h1>
+<%= link_to 'Go Back to Add More Shoots ', {:action => 'new'} %>
+<ul>
+	<% @shoots.each do |shoot| %>
+	<h4><%= link_to "#{shoot.name}", shoot_url(shoot) %></h4>
+	<% end %>
