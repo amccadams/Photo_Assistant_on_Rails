@@ -1,0 +1,12 @@
+<h1>Edit Photo Shoot Detail</h1>
+<%= form_for @shoot do |f| %>
+	<%= f.label :name %>
+  <%= f.text_field :name %>
+  
+ 
+
+
+
+	<%= f.submit "edit Shoot", url: shoot_path, :method => :put %>
+	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+	<% end %>

@@ -1,0 +1,13 @@
+<h1>Manage Photo Shoot Details</h1>
+<%= form_for @shoots do |f| %>
+	<%= f.label :name %>
+  <%= f.text_field :name %>
+  
+ 
+
+
+
+	<%= f.submit "edit Shoot", url: shoot_path, :method => :put %>
+	<%= f.submit "Delete Shoot", url: shoot_path, :method => :delete %>
+	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+	<% end %>

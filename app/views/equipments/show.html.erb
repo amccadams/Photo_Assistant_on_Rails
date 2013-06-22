@@ -1,4 +1,13 @@
-<h1><%= @equipment.name %></h1>
-<p><strong>Serial Number</strong></p> <%= @equipment.serial %>
-<%= link_to 'Edit', {:action => 'edit'} %>
-<%= link_to 'Back', {:action => 'index'} %>
+<h1>Edit Equipment Detail</h1>
+<%= form_for @equipment do |f| %>
+	<%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :serial %>
+  <%= f.text_field :serial %>
+ 
+
+
+
+	<%= f.submit "edit Gear", url: equipment_path, :method => :put %>
+	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+	<% end %>
