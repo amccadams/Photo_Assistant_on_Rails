@@ -5,9 +5,9 @@ class CreateEquipments < ActiveRecord::Migration
 			t.string :serial
 			t.string :make
 			t.string :model
-			t.string :purchasedate
+			t.string :purchase_date
 			t.text :description
-			t.integer :type_id
+			t.string :equipment_category
 		end
 	end
 end

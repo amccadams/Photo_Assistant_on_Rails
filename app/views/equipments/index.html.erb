@@ -1,16 +1,17 @@
 <h1>Camera Gear</h1>
-<%= link_to 'Add Equipment ', {:action => 'new'} %><br />
+<%= link_to "<button>Add Camera Equipment</button>".html_safe, {:action => 'new'} %><br />
 
-
+<!-- link_to "<button>Add</button>".html_safe, -->
 
 	<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %>
 <h2>Click on equipment to see details and make edits</h2>
 
 	<ul>
-	<% @equipments.each do |equipment | %>
-
-	<h4><%= link_to "#{equipment.model}", equipment_url(equipment) %></h4>
-	<% end %>
+		<% @equipments.each do |equipment| %>
+			<li><h4><%= link_to "#{equipment.model}", equipment_url(equipment) %></h4></li>
+		<% end %>
+	</ul>
+		
 
 
 

@@ -1,21 +1,19 @@
 class ShootsController < ApplicationController
  # attr_accessor :equipment_params
 
-  def initialize 
-  end
   
   def index
     @shoots = Shoot.all
-
   end
 
  def new
     @shoot = Shoot.new
-    # @equipment_types = Equipment_Type.find(:all)
   end
 
   def show
-    @shoots = Shoot.find(params[:id])
+    @shoot = Shoot.find(params[:id])
+    @shoot_equipment = @shoot.equipments.all
+    @equipments = Equipment.all
   end
 
   # def create
@@ -32,22 +30,19 @@ class ShootsController < ApplicationController
     @shoot = Shoot.new(params[:shoot])
     if @shoot.save
       redirect_to :action =>'new'
-    # else
-    #    @shoot = Shoot.find(:all)
-    #   render :action => 'new'
+    else
+      flash[:alert] = "Your shoot wasn't added."
+      render :action => 'new'
     end
   end
-
-
-
 
   def update
     @shoot = Shoot.find(params[:id])
     if @shoot.update_attributes(params[:shoot])
-      redirect_to :action => 'show', :id => @shoot
-    # else
-    #   @shoot_types = Shoot_Type.find(:all)
-    #   render :action => 'edit'
+      redirect_to shoot_path(@shoot)
+    else
+      flash[:alert] = "Your shoot wasn't edited."
+      redirect_to shoots_path
     end
   end
 
@@ -69,7 +64,24 @@ class ShootsController < ApplicationController
   def destroy
     @shoot = Shoot.find(params[:id])
     @shoot.destroy
-    end
+    flash[:alert] = "Your shoot was deleted."
+    redirect_to shoots_path
+  end
+
+  def add_equipment
+    @shoot = Shoot.find( params["id"] )
+    @equipment = Equipment.find( params["equipment"] )
+    EquipmentList.create(equipment_id: @equipment.id, shoot_id: @shoot.id)
+    redirect_to shoot_path(@shoot)
+  end
+
+  def remove_equipment
+    @shoot = Shoot.find( params["id"] )
+    @equipment = Equipment.find( params["equipment"] ) 
+    @join = EquipmentList.where( shoot_id: @shoot.id, equipment_id: @equipment.id).first
+    @join.destroy
+    redirect_to shoot_path(@shoot)
+  end
 end
 
 

@@ -15,21 +15,17 @@ ActiveRecord::Schema.define(:version => 20130622124704) do
 
   create_table "equipment_lists", :force => true do |t|
     t.integer "equipment_id"
-    t.integer "photo_shoot_id"
-  end
-
-  create_table "equipment_types", :force => true do |t|
-    t.string "name"
+    t.integer "shoot_id"
   end
 
   create_table "equipments", :force => true do |t|
-    t.string  "name"
-    t.string  "serial"
-    t.string  "make"
-    t.string  "model"
-    t.string  "purchasedate"
-    t.text    "description"
-    t.integer "type_id"
+    t.string "name"
+    t.string "serial"
+    t.string "make"
+    t.string "model"
+    t.string "purchase_date"
+    t.text   "description"
+    t.string "equipment_category"
   end
 
   create_table "shoots", :force => true do |t|

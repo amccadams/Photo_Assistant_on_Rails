@@ -1,17 +1,11 @@
-<h1>Edit Equipment Detail</h1>
-<%= form_for @equipment do |f| %>
-<%= f.label :make %>
-  <%= f.text_field :make %><br />
-	<%= f.label :model %>
-  <%= f.text_field :model %><br />
-  <%= f.label :serial %>
-  <%= f.text_field :serial %><br />
-    <%= f.label :purchasedate %>
-  <%= f.text_field :purchasedate %><br />
-    <%= f.label :description %>
-  <%= f.text_area :description %><br />
-
-	<%= f.submit "Edit Equipment", url: equipment_path, :method => :put %><br /><br />
-	<%= button_to "Delete Gear", @equipment, :method => :delete %><br /><br />
+<h1>Show Equipment Detail</h1>
+<p>Make: <%= @equipment.make %></p>
+<p>Model: <%= @equipment.model %></p>
+<p>Serial: <%= @equipment.serial %></p>
+<p>Purchase Date: <%= @equipment.purchase_date %></p>
+<p>Category: <%= @equipment.equipment_category %></p>
+<p>Details: <%= @equipment.description %></p>
+	
+	<%= link_to "Delete Gear", @equipment, :method => :delete %><br /><br />
 	<%= link_to("Back to Equipment", {:controller => "equipments", :action => "index" }) %>
-	<% end %>
+  <%= link_to "Edit Gear", edit_equipment_path(@equipment) %><br /><br />

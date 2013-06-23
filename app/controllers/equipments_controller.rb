@@ -2,18 +2,13 @@ class EquipmentsController < ApplicationController
   # include Formatter
 
   # attr_accessor :equipment_params
-
-  def initialize 
-  end
   
   def index
     @equipments = Equipment.all
-
   end
 
- def new
+  def new
     @equipment = Equipment.new
-    # @equipment_types = Equipment_Type.find(:all)
   end
 
   def show
@@ -31,11 +26,11 @@ class EquipmentsController < ApplicationController
   # end
 
   def create
-    @equipment = Equipment.new(params[:equipment])
+    @equipment = Equipment.create(params[:equipment])
     if @equipment.save
-      redirect_to :action =>'new'
+      redirect_to :action => 'new'
     else
-       @equipment = Equipment_Type.find(:all)
+      flash[:notice] = "Your equipment wasn't added to the inventory"
       render :action => 'new'
     end
   end
@@ -50,7 +45,7 @@ class EquipmentsController < ApplicationController
     end
   end
 
-    def edit
+  def edit
     @equipment = Equipment.find(params[:id])
     @equipment_count = Equipment.count
   end
@@ -64,14 +59,12 @@ class EquipmentsController < ApplicationController
     @equipment = Equipment.find(params[:id])
   end
 
-  def show_equipment_type_id
-    @equipment_type = Equipment_Type.find (params[:id])
-  end
-
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
-    end
+    flash[:alert] = "Your equipment was deleted from the inventory"
+    redirect_to :action => 'index'
+  end
 end
 
 
