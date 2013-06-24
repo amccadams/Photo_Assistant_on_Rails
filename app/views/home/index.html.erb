@@ -1,13 +1,7 @@
 
-<%= link_to "Manage equipment", equipments_path %> <br />
-
-<%#= link_to "Add equipment", new_equipment_path %> 
-
-
-<%#= link_to "Add a Photo Shoot", new_photo_shoot_path %> 
-<%#= link_to "Add a Photo Shoot", new_shoot_path %> 
-<%= link_to "Manage Shoots", shoots_path %> <br />
-<%= image_tag("title_image.jpg", :alt => "rss feed") %>
+<%= link_to "<button>Manage Equipment</button>".html_safe, equipments_path %> <br />
+<%= link_to "<button>Manage Shoots</button>".html_safe, shoots_path %> <br />
+<div id ="title_page"><%= image_tag("title_image.jpg", :alt => "rss feed") %></div>
 
 
   

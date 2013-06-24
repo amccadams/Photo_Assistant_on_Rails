@@ -4,7 +4,8 @@
   <%= f.text_field :make %> <br />
   <%= f.label :model %>
   <%= f.text_field :model %><br />
-  <%= f.select :equipment_category, [['Camera','camera'], ['Lens','lens']] %> <br />
+  <%= f.label :equipment_category %>
+  <%= f.select :equipment_category, [['Camera','Camera'], ['Lens','Lens'],['Lighting','Lighting'], ['Support','Support'], ['Accessory','Accessory']] %> <br />
   <%= f.label :serial %>
   <%= f.text_field :serial %><br />
     <%= f.label :purchase_date %>

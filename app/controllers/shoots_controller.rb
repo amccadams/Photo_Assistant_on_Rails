@@ -16,16 +16,6 @@ class ShootsController < ApplicationController
     @equipments = Equipment.all
   end
 
-  # def create
-  #   @equipment = Equipment.new(params[:equipment])
-  #   if @equipment.save
-  #     flash[:notice] = "Your equipment was added to the inventory"
-  #   else
-  #     flash[:alert] = "Your equipment wasn't added to the inventory"
-  #   end
-  #   redirect_to :root
-  # end
-
   def create
     @shoot = Shoot.new(params[:shoot])
     if @shoot.save
@@ -50,16 +40,6 @@ class ShootsController < ApplicationController
     @shoot = Shoot.find(params[:id])
     @shoot_count = Shoot.count
   end
-
-  # def edit
-  #   @equipment = Equipment.find(params[:id])
-  #   # @equipment_types = Equipment_Type.find(:all)
-  # end
-
-  # def delete
-  #   @shoot = Shoot.find(params[:id])
-  # end
-
 
   def destroy
     @shoot = Shoot.find(params[:id])

@@ -12,6 +12,5 @@ RailsPhotoAssistant::Application.routes.draw do
 
   end
   resources :equipments
-
   # devise_for :users
 end
