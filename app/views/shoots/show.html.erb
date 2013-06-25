@@ -1,14 +1,45 @@
 <h1>Manage Photo Shoot Details</h1>
-  <p>Name: <%= @shoot.name %></p>
-  <p>Address: <%= @shoot.address %></p>
-  <p>City: <%= @shoot.city %></p>
-  <p>State: <%= @shoot.state %></p>
-  <p>Zip: <%= @shoot.zip %></p>
-  <p>Phone: <%= @shoot.phone %></p>
-  <p>Email: <%= @shoot.email %></p>
-  <p>Date: <%= @shoot.date %></p>
-  <p>Time: <%= @shoot.time %></p>
-  <p>Description: <%= @shoot.description %></p>
+<div class="btn-group">
+  <%= link_to "Edit Shoot", {:action => 'edit'}, :class => "btn btn-inverse" %>
+  <%= link_to "Delete Shoot", @shoot, :method => :delete, :class => "btn btn-inverse" %>
+</div>
+ <br />
+ <table class="table">
+  <tr>
+  <th>Name:</th> 
+  <th>Address:</th> 
+  <th>City:</th> 
+  <th>State:</th> 
+  <th>Zip:</th> 
+  <th>Phone:</th> 
+  <th>Email:</th> 
+  <th>Date:</th> 
+  <th>Time:</th> 
+   
+  </tr>
+  <tr>
+    <td><%= @shoot.name %></td>
+    <td><%= @shoot.address %></td>
+    <td><%= @shoot.city %></td>
+    <td><%= @shoot.state %></td>
+    <td><%= @shoot.zip %></td>
+    <td><%= @shoot.phone %></td>
+    <td><%= @shoot.email %></td>
+    <td><%= @shoot.date %></td>
+    <td><%= @shoot.time %></td>
+     </tr>
+    </table>
+     <table>
+      <tr>
+    <th>Description:</th>
+    </tr>
+    <tr>
+    <td><%= @shoot.description %></td>
+    </tr>
+  </table>
+  <br />
+
+   <h4>Equipment for Shoot</h4>
     <ul>
       <% @shoot_equipment.each do |equipment| %>
         <li><%= equipment.model %> <%= link_to "Remove Equipment", controller: "shoots", action: "remove_equipment", id: @shoot, equipment: equipment %></li>
@@ -18,10 +49,16 @@
 <%= form_tag("/shoots/#{@shoot.id}/add_equipment", :method => "post") do %>
   <%= select_tag "equipment", options_from_collection_for_select(@equipments, "id", "model") %>
   <%= submit_tag "Add Equipment" %>
-<% end %>
 
-  <%= link_to "Delete Shoot", @shoot, :method => :delete %><br />
+ 
 
   <%= link_to "Back to Main Page", root_path %><br />
 
   <%= link_to "Back to Shoots Page", shoots_path %>
+
+
+<% end %>
+
+ 
+
+ 
