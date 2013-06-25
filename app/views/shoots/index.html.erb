@@ -1,8 +1,11 @@
-<h1>Show Photo Shoots</h1>
-<%= link_to '
-Add More Shoots ', {:action => 'new'} %><br />
-<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %><br />
+<h1>Photo Shoots</h1>
+<div class="btn-group">
+  <%= link_to "Add New Shoot", {:action => 'new'}, :class => "btn btn-inverse" %>
+</div>
+<h3>Click on shoot name to see details and make edits</h3>
+
 <ul>
 	<% @shoots.each do |shoot| %>
 	<h4><%= link_to "#{shoot.name}", shoot_url(shoot) %></h4>
 	<% end %>
+</ul>
