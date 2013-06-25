@@ -1,9 +1,10 @@
 <h1>Add Camera Gear</h1>
+
 <%= form_for @equipment do |f| %>
 	<%= f.label :make %>
-  <%= f.text_field :make %> <br />
+  <%= f.text_field :make %> 
   <%= f.label :model %>
-  <%= f.text_field :model %><br />
+  <%= f.text_field :model %>
   <%= f.label :equipment_category %>
   <%= f.select :equipment_category, [['Camera','Camera'], ['Lens','Lens'],['Lighting','Lighting'], ['Support','Support'], ['Accessory','Accessory']] %> <br />
   <%= f.label :serial %>
@@ -16,7 +17,8 @@
  
 
 	<%= f.submit "Add Gear" %><br />
-	<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %><br />
+   
+
 
 	<%= link_to("Back to Equipment Page", {:controller => "equipments", :action => "index" }) %>
 	<% end %>
