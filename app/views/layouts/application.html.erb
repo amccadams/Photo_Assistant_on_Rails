@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Photo Assistant" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -12,7 +12,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top">
+    <header class="navbar navbar-fixed-top navbar-inverse">
       <nav class="navbar-inner">
         <div class="container">
           <%= render 'layouts/navigation' %>
@@ -28,10 +28,14 @@
               <%= yield %>
             </div>
           </div>
-          <footer>
-          </footer>
+         
         </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
+     <div id="footer">
+      <div class="container">
+        <h4 class="muted credit">© Amanda McCadams </h4>
+      </div>
+    </div>
   </body>
 </html>
