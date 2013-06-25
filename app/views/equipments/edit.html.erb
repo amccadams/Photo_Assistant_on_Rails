@@ -1,4 +1,9 @@
 <h1>Edit Equipment Detail</h1>
+<div class="btn-group">
+  <%= link_to "Edit Equipment", {:action => 'edit'}, :class => "btn btn-inverse" %>
+  <%= link_to "Delete Equipment", @equipment, :method => :delete, :class => "btn btn-inverse" %>
+  <%= link_to "Back to Equipment Manager", {:controller => "equipments", :action => "index"}, :class => "btn btn-inverse" %>
+</div>
 <%= form_for @equipment do |f| %>
 	<%= f.label :make %>
   <%= f.text_field :make %>

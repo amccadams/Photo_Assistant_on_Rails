@@ -1,11 +1,12 @@
-<h1>Show Equipment Detail</h1>
+<h1>Equipment Detail</h1>
+<div class="btn-group">
+  <%= link_to "Edit Equipment", {:action => 'edit'}, :class => "btn btn-inverse" %>
+  <%= link_to "Delete Equipment", @equipment, :method => :delete, :class => "btn btn-inverse" %>
+  <%= link_to "Back to Equipment Manager", {:controller => "equipments", :action => "index"}, :class => "btn btn-inverse" %>
+</div>
 <p>Make: <%= @equipment.make %></p>
 <p>Model: <%= @equipment.model %></p>
 <p>Serial: <%= @equipment.serial %></p>
 <p>Purchase Date: <%= @equipment.purchase_date %></p>
 <p>Category: <%= @equipment.equipment_category %></p>
 <p>Details: <%= @equipment.description %></p>
-	
-	<%= link_to "Delete Gear", @equipment, :method => :delete %><br /><br />
-	<%= link_to("Back to Equipment", {:controller => "equipments", :action => "index" }) %>
-  <%= link_to "Edit Gear", edit_equipment_path(@equipment) %><br /><br />

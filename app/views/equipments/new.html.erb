@@ -1,18 +1,22 @@
 <h1>Add Camera Gear</h1>
-  <%= link_to("Back to Equipment Page", {:controller => "equipments", :action => "index" }) %>
-<%= simple_form_for @equipment do |f| %>
+ <div class="btn-group">
+  <%= link_to "Back to Equipment Page", {:controller => "equipments", :action => "index"}, :class => "btn btn-inverse" %>
+  </div>
+<%= simple_form_for(@equipment, :html => { :class => 'form-horizontal'}) do |f| %>
   <%= f.input :make %>
   <%= f.input :model %>
   <%= f.input :equipment_category, collection: [['Camera','Camera'], ['Lens','Lens'],['Lighting','Lighting'], ['Support','Support'], ['Accessory','Accessory']] %> 
   <%= f.input :serial %>
   <%= f.input :purchase_date %>
   <%= f.input :description %>
- <%= f.button :submit %>
-
-
-
-
+    <div class="btn-group">
+ <%= f.button :submit, :class => "btn btn-inverse" %>
+ </div>
 	<% end %>
+
+ <!--  <div class="btn-group">
+  <%#= link_to "Add Equipment", {:action => 'new'}, :class => "btn btn-inverse" %>
+</div> -->
 
 
 
