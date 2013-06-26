@@ -4,13 +4,12 @@
   <%= f.text_field :name %>
   <%= f.label :email %>
   <%= f.text_field :email %>
-    <%= f.label :phone %>
+  <%= f.label :phone %>
   <%= f.text_field :phone %><br />
   <%= f.label :date %>
   <%= f.text_field :date %>
   <%= f.label :time %>
   <%= f.text_field :time %><br />
-
   <%= f.label :address %>
   <%= f.text_field :address %>
   <%= f.label :city %>
@@ -20,12 +19,9 @@
   <%= f.label :zip %>
   <%= f.text_field :zip %><br />
     <%= f.label :description %>
-  <%= f.text_area :description %>
-  
- 
-
-
-
-	<%= f.submit "edit Shoot", url: shoot_path, :method => :put %>
-	<%= link_to("Go back", {:controller => "home", :action => "index" }) %>
+  <%= f.text_area :description %><br />
+ <%= f.button :submit, :class => "btn btn-inverse" %>
+<div class="btn-group">
+  <%= link_to "Delete Shoot", @shoot, :method => :delete, :class => "btn btn-inverse" %>
+</div>
 	<% end %>

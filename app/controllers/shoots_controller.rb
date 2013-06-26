@@ -19,7 +19,7 @@ class ShootsController < ApplicationController
   def create
     @shoot = Shoot.new(params[:shoot])
     if @shoot.save
-      redirect_to :action =>'new'
+      redirect_to :action =>'index'
     else
       flash[:alert] = "Your shoot wasn't added."
       render :action => 'new'

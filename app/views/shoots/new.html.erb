@@ -21,13 +21,11 @@
   <%= f.label :zip %>
   <%= f.text_field :zip %><br />
     <%= f.label :description %>
-  <%= f.text_area :description %>
-
+  <%= f.text_area :description %><br />
+  <div class="btn-group">
+ <%= f.button :submit, :class => "btn btn-inverse" %>
+ </div>
  
-
-	<%= f.submit "Add Shoot" %><br />
-	<%= link_to("Back to Main Page", {:controller => "home", :action => "index" }) %><br />
-  <%= link_to("Back to Shoots Page", {:controller => "shoots", :action => "index" }) %>
 	<% end %>
 
 
